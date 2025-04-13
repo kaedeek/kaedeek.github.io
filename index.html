@@ -9,47 +9,96 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <div class="container">
-    <a href="./about.html" class="card">
-      <h3 class="title">About</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <i class="fas fa-user fa-2x"></i>
-      </div>
-    </a>
-    <a href="./skills.html" class="card">
-      <h3 class="title">skills</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <i class="fas fa-code fa-2x"></i>
-      </div>
-    </a>
-    <a href="https://github.com/kaedeek" target="_blank" rel="noopener noreferrer" class="card">
-      <h3 class="title">GitHub</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <i class="fab fa-github fa-2x"></i>
-      </div>
-    </a>
-    <a href="https://x.com/bl5ca6ngtfu3pjy" target="_blank" rel="noopener noreferrer" class="card">
-      <h3 class="title">Twitter</h3>
-      <div class="bar">
-        <div class="emptybar"></div>
-        <div class="filledbar"></div>
-      </div>
-      <div class="circle">
-        <i class="fab fa-twitter fa-2x"></i>
-      </div>
-    </a>
-  </div>
+    <main class="main">
+        <section class="card-area">
+            <!-- Card: About -->
+            <section class="card-section">
+                <a href="#about" class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--about">
+                                    <i class="fas fa-user fa-3x"></i>
+                                    <h2 class="card-front__heading">プロフィール</h2>
+                                </div>
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view">詳細を見る</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+            <!-- Card: Skills -->
+            <section class="card-section">
+                <a href="#skills" class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--skills">
+                                    <i class="fas fa-code fa-3x"></i>
+                                    <h2 class="card-front__heading">スキル</h2>
+                                </div>
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view">詳細を見る</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+            <!-- Card: GitHub -->
+            <section class="card-section">
+                <a href="https://github.com/kaedeek" target="_blank" rel="noopener noreferrer" class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--github">
+                                    <i class="fab fa-github fa-3x"></i>
+                                    <h2 class="card-front__heading">GitHub</h2>
+                                </div>
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view">プロフィールを見る</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+            <!-- Card: Twitter -->
+            <section class="card-section">
+                <a href="https://x.com/bl5ca6ngtfu3pjy" target="_blank" rel="noopener noreferrer" class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--twitter">
+                                    <i class="fab fa-twitter fa-3x"></i>
+                                    <h2 class="card-front__heading">Twitter</h2>
+                                </div>
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view">プロフィールを見る</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="content-section">
+            <h2>プロフィール</h2>
+            <p>プロフィールの内容がここに入ります。</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="content-section">
+            <h2>スキル</h2>
+            <p>スキルの内容がここに入ります。</p>
+        </section>
+    </main>
 </body>
 </html>
