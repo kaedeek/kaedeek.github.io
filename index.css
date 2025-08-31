@@ -526,18 +526,22 @@ body {
     align-items: center;
     gap: 12px;
     padding: 18px 30px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 18px;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 16px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .social-link::before {
@@ -556,12 +560,14 @@ body {
 }
 
 .social-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px) scale(1.05);
     box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.25);
+        0 15px 40px rgba(0, 0, 0, 0.7),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .social-icon {
@@ -575,20 +581,63 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
+.social-link:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.6);
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.social-link:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
 .github-link:hover {
-    background: rgba(36, 41, 46, 0.9);
-    border-color: rgba(36, 41, 46, 0.9);
+    background: rgba(36, 41, 46, 0.95);
+    border-color: rgba(36, 41, 46, 0.95);
     box-shadow: 
-        0 10px 30px rgba(36, 41, 46, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 15px 40px rgba(36, 41, 46, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 25px rgba(36, 41, 46, 0.5);
+    color: #ffffff;
 }
 
 .x-link:hover {
-    background: rgba(29, 161, 242, 0.9);
-    border-color: rgba(29, 161, 242, 0.9);
+    background: rgba(29, 161, 242, 0.95);
+    border-color: rgba(29, 161, 242, 0.95);
     box-shadow: 
-        0 10px 30px rgba(29, 161, 242, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 15px 40px rgba(29, 161, 242, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 25px rgba(29, 161, 242, 0.5);
+    color: #ffffff;
+}
+
+/* デスクトップ向けの改善 */
+@media (min-width: 1024px) {
+    .social-links {
+        gap: 35px;
+    }
+    
+    .social-link {
+        padding: 22px 40px;
+        font-size: 18px;
+        min-width: 200px;
+    }
+    
+    .social-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .glass-card {
+        padding: 45px;
+    }
+    
+    .glass-card h2 {
+        font-size: 32px;
+        margin-bottom: 35px;
+    }
 }
 
 /* レスポンシブデザイン */
