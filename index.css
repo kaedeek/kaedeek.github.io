@@ -448,6 +448,43 @@ body {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
+/* アコーディオンヘッダー */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    border-radius: 10px;
+}
+
+.accordion-header:hover {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+}
+
+.accordion-icon {
+    width: 24px;
+    height: 24px;
+    fill: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.accordion-header:hover .accordion-icon {
+    fill: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* スキルコンテンツ */
+.skills-content {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+}
+
 /* スキルセクション */
 .skills-grid {
     display: grid;
@@ -638,6 +675,11 @@ body {
         font-size: 32px;
         margin-bottom: 35px;
     }
+    
+    .accordion-icon {
+        width: 28px;
+        height: 28px;
+    }
 }
 
 /* レスポンシブデザイン */
@@ -657,6 +699,11 @@ body {
     
     .glass-card h2 {
         font-size: 22px;
+    }
+    
+    .accordion-icon {
+        width: 20px;
+        height: 20px;
     }
     
     .profile-info {

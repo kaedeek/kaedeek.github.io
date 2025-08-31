@@ -73,36 +73,43 @@
         </div>
 
         <div class="glass-card skills-card">
-            <h2>Skill</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <span class="skill-name">Python</span>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width: 100%"></div>
+            <div class="accordion-header" onclick="toggleSkills()">
+                <h2>Skill</h2>
+                <svg class="accordion-icon" id="skills-icon" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </div>
+            <div class="skills-content" id="skills-content">
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">JavaScript</span>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width: 80%"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">TypeScript</span>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width: 75%"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">TypeScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 75%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">Golang</span>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width: 50%"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">Golang</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 50%"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-name">Rust</span>
-                    <div class="skill-bar">
-                        <div class="skill-fill" style="width: 40%"></div>
+                    <div class="skill-item">
+                        <span class="skill-name">Rust</span>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 40%"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,5 +133,26 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleSkills() {
+            const content = document.getElementById('skills-content');
+            const icon = document.getElementById('skills-icon');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            const content = document.getElementById('skills-content');
+            const icon = document.getElementById('skills-icon');
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.style.transform = 'rotate(180deg)';
+        });
+    </script>
 </body>
 </html>
