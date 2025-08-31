@@ -34,8 +34,14 @@
         <div class="star star-10"></div>
     </div>
     
+    <div class="scroll-indicator">
+        <div class="scroll-dot active" data-section="profile"></div>
+        <div class="scroll-dot" data-section="skills"></div>
+        <div class="scroll-dot" data-section="links"></div>
+    </div>
+
     <div class="card-container">
-        <div class="glass-card profile-card">
+        <div class="glass-card profile-card" id="profile">
             <div class="profile-avatar">
                 <img src="icon.jpg" alt="楓のプロフィール画像" class="avatar-image">
             </div>
@@ -72,7 +78,7 @@
             <p>Pythonが好きです</p>
         </div>
 
-        <div class="glass-card skills-card">
+        <div class="glass-card skills-card" id="skills">
             <div class="accordion-header" onclick="toggleSkills()">
                 <h2>Skill</h2>
                 <svg class="accordion-icon" id="skills-icon" viewBox="0 0 24 24">
@@ -115,7 +121,7 @@
             </div>
         </div>
 
-        <div class="glass-card social-card">
+        <div class="glass-card social-card" id="links">
             <h2>Link</h2>
             <div class="social-links">
                 <div class="social-row">
@@ -168,7 +174,45 @@
             const icon = document.getElementById('skills-icon');
             content.style.maxHeight = content.scrollHeight + "px";
             icon.style.transform = 'rotate(180deg)';
+            
+            initScrollIndicator();
         });
+
+        function initScrollIndicator() {
+            const dots = document.querySelectorAll('.scroll-dot');
+            const sections = document.querySelectorAll('.glass-card');
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const targetId = dot.getAttribute('data-section');
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-section') === current) {
+                        dot.classList.add('active');
+                    }
+                });
+            });
+        }
     </script>
 </body>
 </html>

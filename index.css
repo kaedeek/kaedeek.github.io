@@ -8,9 +8,68 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding: 40px 20px;
+}
+
+/* スクロールインジケーター */
+.scroll-indicator {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+.scroll-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.scroll-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.2);
+}
+
+.scroll-dot.active {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.scroll-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: width 0.3s ease;
+}
+
+.scroll-dot.active::after {
+    width: 20px;
 }
 
 /* 宇宙のアニメーション */
@@ -292,11 +351,12 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    max-width: 800px;
+    gap: 40px;
+    max-width: 900px;
     width: 100%;
     position: relative;
     z-index: 2;
+    margin: 0 auto;
 }
 
 .glass-card {
@@ -682,37 +742,93 @@ body {
 
 /* デスクトップ向けの改善 */
 @media (min-width: 1024px) {
-    .social-links {
-        gap: 20px;
+    body {
+        padding: 60px 40px;
+        align-items: flex-start;
     }
     
-    .social-row {
-        gap: 30px;
-    }
-    
-    .social-link {
-        padding: 16px 28px;
-        font-size: 16px;
-        min-width: 160px;
-    }
-    
-    .social-icon {
-        width: 24px;
-        height: 24px;
+    .card-container {
+        gap: 50px;
+        max-width: 1000px;
+        padding: 30px;
     }
     
     .glass-card {
-        padding: 45px;
+        padding: 50px;
+        margin-bottom: 20px;
+    }
+    
+    .glass-card h1 {
+        font-size: 42px;
+        margin-bottom: 30px;
     }
     
     .glass-card h2 {
-        font-size: 32px;
-        margin-bottom: 35px;
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+    
+    .profile-info {
+        margin: 40px 0;
+    }
+    
+    .profile-item {
+        padding: 20px 0;
+    }
+    
+    .profile-label {
+        font-size: 19px;
+    }
+    
+    .profile-value {
+        font-size: 21px;
+    }
+    
+    .profile-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .avatar-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .skills-grid {
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .skill-name {
+        font-size: 18px;
+    }
+    
+    .skill-bar {
+        height: 12px;
+    }
+    
+    .social-links {
+        gap: 25px;
+    }
+    
+    .social-row {
+        gap: 35px;
+    }
+    
+    .social-link {
+        padding: 18px 32px;
+        font-size: 17px;
+        min-width: 180px;
+    }
+    
+    .social-icon {
+        width: 26px;
+        height: 26px;
     }
     
     .accordion-icon {
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
     }
 }
 
@@ -792,5 +908,9 @@ body {
     .nebula-1, .nebula-2, .nebula-3 {
         width: 200px;
         height: 200px;
+    }
+    
+    .scroll-indicator {
+        display: none;
     }
 }
