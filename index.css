@@ -553,7 +553,15 @@ body {
 /* ソーシャルリンクセクション */
 .social-links {
     display: flex;
-    gap: 25px;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-row {
+    display: flex;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -561,15 +569,15 @@ body {
 .social-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 18px 30px;
+    gap: 10px;
+    padding: 14px 24px;
     background: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 18px;
+    border-radius: 16px;
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 15px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -579,6 +587,8 @@ body {
     box-shadow: 
         0 4px 15px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    min-width: 140px;
+    justify-content: center;
 }
 
 .social-link::before {
@@ -608,8 +618,8 @@ body {
 }
 
 .social-icon {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     fill: currentColor;
     transition: transform 0.3s ease;
 }
@@ -673,18 +683,22 @@ body {
 /* デスクトップ向けの改善 */
 @media (min-width: 1024px) {
     .social-links {
-        gap: 35px;
+        gap: 20px;
+    }
+    
+    .social-row {
+        gap: 30px;
     }
     
     .social-link {
-        padding: 22px 40px;
-        font-size: 18px;
-        min-width: 200px;
+        padding: 16px 28px;
+        font-size: 16px;
+        min-width: 160px;
     }
     
     .social-icon {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
     }
     
     .glass-card {
@@ -753,14 +767,22 @@ body {
     }
     
     .social-links {
-        flex-direction: column;
-        align-items: center;
+        gap: 12px;
+    }
+    
+    .social-row {
+        gap: 15px;
     }
     
     .social-link {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
+        padding: 12px 20px;
+        font-size: 14px;
+        min-width: 120px;
+    }
+    
+    .social-icon {
+        width: 20px;
+        height: 20px;
     }
     
     .nebula {
