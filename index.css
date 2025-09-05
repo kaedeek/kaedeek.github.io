@@ -30,6 +30,31 @@ body {
     transition: opacity 0.3s ease;
 }
 
+/* 大画面でのスクロールインジケーター調整 */
+@media (min-width: 1440px) {
+    .scroll-indicator {
+        right: 40px;
+        gap: 18px;
+    }
+    
+    .scroll-dot {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+    .scroll-indicator {
+        right: 35px;
+        gap: 16px;
+    }
+    
+    .scroll-dot {
+        width: 13px;
+        height: 13px;
+    }
+}
+
 .scroll-indicator:hover {
     opacity: 1;
 }
@@ -545,6 +570,13 @@ body {
     max-height: 0;
 }
 
+/* Worksコンテンツ */
+.works-content {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+}
+
 /* スキルセクション */
 .skills-grid {
     display: grid;
@@ -875,7 +907,275 @@ body {
     transform: scale(1.1);
 }
 
-/* デスクトップ向けの改善 */
+/* 大画面デスクトップ向け（1440px以上） */
+@media (min-width: 1440px) {
+    body {
+        padding: 80px 60px;
+    }
+    
+    .card-container {
+        gap: 60px;
+        max-width: 1200px;
+        padding: 40px;
+    }
+    
+    .glass-card {
+        padding: 60px;
+    }
+    
+    .glass-card h1 {
+        font-size: 48px;
+        margin-bottom: 35px;
+    }
+    
+    .glass-card h2 {
+        font-size: 40px;
+        margin-bottom: 45px;
+    }
+    
+    .profile-info {
+        margin: 50px 0;
+    }
+    
+    .profile-item {
+        padding: 25px 0;
+    }
+    
+    .profile-label {
+        font-size: 22px;
+    }
+    
+    .profile-value {
+        font-size: 24px;
+    }
+    
+    .profile-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .avatar-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .skills-grid {
+        gap: 35px;
+        margin-top: 35px;
+    }
+    
+    .skill-name {
+        font-size: 20px;
+    }
+    
+    .skill-bar {
+        height: 14px;
+    }
+    
+    .social-links {
+        gap: 30px;
+    }
+    
+    .social-row {
+        gap: 40px;
+    }
+    
+    .social-link {
+        padding: 20px 36px;
+        font-size: 18px;
+        min-width: 200px;
+    }
+    
+    .social-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .accordion-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .works-grid {
+        gap: 45px;
+        margin-top: 40px;
+    }
+    
+    .work-item {
+        padding: 40px;
+        gap: 35px;
+    }
+    
+    .work-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .work-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .work-title {
+        font-size: 28px;
+    }
+    
+    .work-description {
+        font-size: 20px;
+        line-height: 1.8;
+    }
+    
+    .tech-tag {
+        padding: 10px 18px;
+        font-size: 15px;
+    }
+    
+    .work-link {
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+    
+    .work-link-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* 中画面デスクトップ向け（1200px以上） */
+@media (min-width: 1200px) and (max-width: 1439px) {
+    body {
+        padding: 70px 50px;
+    }
+    
+    .card-container {
+        gap: 55px;
+        max-width: 1100px;
+        padding: 35px;
+    }
+    
+    .glass-card {
+        padding: 55px;
+    }
+    
+    .glass-card h1 {
+        font-size: 45px;
+        margin-bottom: 32px;
+    }
+    
+    .glass-card h2 {
+        font-size: 38px;
+        margin-bottom: 42px;
+    }
+    
+    .profile-info {
+        margin: 45px 0;
+    }
+    
+    .profile-item {
+        padding: 22px 0;
+    }
+    
+    .profile-label {
+        font-size: 20px;
+    }
+    
+    .profile-value {
+        font-size: 22px;
+    }
+    
+    .profile-icon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .avatar-image {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .skills-grid {
+        gap: 32px;
+        margin-top: 32px;
+    }
+    
+    .skill-name {
+        font-size: 19px;
+    }
+    
+    .skill-bar {
+        height: 13px;
+    }
+    
+    .social-links {
+        gap: 27px;
+    }
+    
+    .social-row {
+        gap: 37px;
+    }
+    
+    .social-link {
+        padding: 19px 34px;
+        font-size: 17px;
+        min-width: 190px;
+    }
+    
+    .social-icon {
+        width: 27px;
+        height: 27px;
+    }
+    
+    .accordion-icon {
+        width: 31px;
+        height: 31px;
+    }
+    
+    .works-grid {
+        gap: 42px;
+        margin-top: 37px;
+    }
+    
+    .work-item {
+        padding: 37px;
+        gap: 32px;
+    }
+    
+    .work-image {
+        width: 165px;
+        height: 165px;
+    }
+    
+    .work-icon {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .work-title {
+        font-size: 27px;
+    }
+    
+    .work-description {
+        font-size: 19px;
+        line-height: 1.75;
+    }
+    
+    .tech-tag {
+        padding: 9px 17px;
+        font-size: 14px;
+    }
+    
+    .work-link {
+        padding: 13px 22px;
+        font-size: 15px;
+    }
+    
+    .work-link-icon {
+        width: 19px;
+        height: 19px;
+    }
+}
+
+/* デスクトップ向け（1024px以上） */
 @media (min-width: 1024px) {
     body {
         padding: 60px 40px;
@@ -1011,8 +1311,309 @@ body {
     }
 }
 
-/* レスポンシブデザイン */
+/* タブレット横向き（1024px以下） */
+@media (max-width: 1024px) and (min-width: 769px) {
+    body {
+        padding: 40px 30px;
+    }
+    
+    .scroll-indicator {
+        right: 20px;
+    }
+    
+    .scroll-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .card-container {
+        max-width: 800px;
+        padding: 25px;
+        gap: 35px;
+    }
+    
+    .glass-card {
+        padding: 35px;
+    }
+    
+    .glass-card h1 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    
+    .glass-card h2 {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+    
+    .profile-info {
+        margin: 30px 0;
+    }
+    
+    .profile-item {
+        padding: 15px 0;
+    }
+    
+    .profile-label {
+        font-size: 17px;
+    }
+    
+    .profile-value {
+        font-size: 19px;
+    }
+    
+    .profile-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .avatar-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .skills-grid {
+        gap: 25px;
+        margin-top: 25px;
+    }
+    
+    .skill-name {
+        font-size: 17px;
+    }
+    
+    .skill-bar {
+        height: 11px;
+    }
+    
+    .social-links {
+        gap: 20px;
+    }
+    
+    .social-row {
+        gap: 25px;
+    }
+    
+    .social-link {
+        padding: 15px 28px;
+        font-size: 16px;
+        min-width: 160px;
+    }
+    
+    .social-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .accordion-icon {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .works-grid {
+        gap: 30px;
+        margin-top: 30px;
+    }
+    
+    .work-item {
+        padding: 30px;
+        gap: 25px;
+    }
+    
+    .work-image {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .work-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .work-title {
+        font-size: 24px;
+    }
+    
+    .work-description {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+    
+    .tech-tag {
+        padding: 7px 14px;
+        font-size: 13px;
+    }
+    
+    .work-link {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+    
+    .work-link-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* タブレット縦向き（768px以下） */
+@media (max-width: 768px) and (min-width: 481px) {
+    body {
+        padding: 30px 20px;
+    }
+    
+    .scroll-indicator {
+        right: 15px;
+    }
+    
+    .scroll-dot {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .card-container {
+        max-width: 600px;
+        padding: 20px;
+        gap: 30px;
+    }
+    
+    .glass-card {
+        padding: 30px;
+    }
+    
+    .glass-card h1 {
+        font-size: 30px;
+        margin-bottom: 25px;
+    }
+    
+    .glass-card h2 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+    
+    .accordion-icon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .profile-info {
+        margin: 25px 0;
+    }
+    
+    .profile-item {
+        padding: 12px 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .profile-label {
+        font-size: 16px;
+    }
+    
+    .profile-value {
+        font-size: 18px;
+    }
+    
+    .profile-icon {
+        width: 17px;
+        height: 17px;
+    }
+    
+    .avatar-image {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-row {
+        gap: 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .social-link {
+        padding: 14px 24px;
+        font-size: 15px;
+        min-width: 140px;
+    }
+    
+    .social-icon {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .works-grid {
+        gap: 25px;
+        margin-top: 25px;
+    }
+    
+    .work-item {
+        flex-direction: row;
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    .work-image {
+        width: 110px;
+        height: 110px;
+        flex-shrink: 0;
+    }
+    
+    .work-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .work-title {
+        font-size: 22px;
+        text-align: left;
+    }
+    
+    .work-description {
+        font-size: 16px;
+        text-align: left;
+    }
+    
+    .work-tech {
+        justify-content: flex-start;
+    }
+    
+    .tech-tag {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .work-links {
+        justify-content: flex-start;
+    }
+    
+    .work-link {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+    
+    .work-link-icon {
+        width: 15px;
+        height: 15px;
+    }
+    
+    .skill-name {
+        font-size: 16px;
+    }
+    
+    .skill-bar {
+        height: 10px;
+    }
+}
+
 @media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+    
     .card-container {
         padding: 15px;
         gap: 25px;
@@ -1041,6 +1642,9 @@ body {
     
     .profile-item {
         padding: 12px 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
     
     .profile-label {
@@ -1067,12 +1671,16 @@ body {
     
     .social-row {
         gap: 15px;
+        flex-direction: column;
+        align-items: center;
     }
     
     .social-link {
         padding: 12px 20px;
         font-size: 14px;
         min-width: 120px;
+        width: 100%;
+        max-width: 200px;
     }
     
     .social-icon {
@@ -1146,5 +1754,116 @@ body {
     .work-link-icon {
         width: 14px;
         height: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px 5px;
+    }
+    
+    .card-container {
+        padding: 10px;
+        gap: 20px;
+    }
+    
+    .glass-card {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    
+    .glass-card h1 {
+        font-size: 24px;
+    }
+    
+    .glass-card h2 {
+        font-size: 20px;
+    }
+    
+    .accordion-header {
+        padding: 10px 0;
+    }
+    
+    .accordion-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .profile-item {
+        padding: 10px 0;
+    }
+    
+    .profile-label {
+        font-size: 14px;
+    }
+    
+    .profile-value {
+        font-size: 16px;
+    }
+    
+    .profile-icon {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .avatar-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-link {
+        padding: 10px 16px;
+        font-size: 13px;
+        min-width: 100px;
+    }
+    
+    .social-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .work-item {
+        padding: 15px;
+    }
+    
+    .work-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .work-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .work-title {
+        font-size: 18px;
+    }
+    
+    .work-description {
+        font-size: 14px;
+    }
+    
+    .tech-tag {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+    
+    .work-link {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .work-link-icon {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .skill-name {
+        font-size: 14px;
+    }
+    
+    .skill-bar {
+        height: 8px;
     }
 }

@@ -123,8 +123,14 @@
         </div>
 
         <div class="glass-card works-card" id="works">
-            <h2>Works</h2>
-            <div class="works-grid">
+            <div class="accordion-header" onclick="toggleWorks()">
+                <h2>Works</h2>
+                <svg class="accordion-icon" id="works-icon" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </div>
+            <div class="works-content" id="works-content">
+                <div class="works-grid">
                 <div class="work-item">
                     <div class="work-image">
                         <div class="work-placeholder">
@@ -174,6 +180,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
 
@@ -225,11 +232,29 @@
                 icon.style.transform = 'rotate(180deg)';
             }
         }
+
+        function toggleWorks() {
+            const content = document.getElementById('works-content');
+            const icon = document.getElementById('works-icon');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
         document.addEventListener('DOMContentLoaded', function() {
-            const content = document.getElementById('skills-content');
-            const icon = document.getElementById('skills-icon');
-            content.style.maxHeight = content.scrollHeight + "px";
-            icon.style.transform = 'rotate(180deg)';
+            const skillsContent = document.getElementById('skills-content');
+            const skillsIcon = document.getElementById('skills-icon');
+            skillsContent.style.maxHeight = skillsContent.scrollHeight + "px";
+            skillsIcon.style.transform = 'rotate(180deg)';
+            
+            const worksContent = document.getElementById('works-content');
+            const worksIcon = document.getElementById('works-icon');
+            worksContent.style.maxHeight = '0px';
+            worksIcon.style.transform = 'rotate(0deg)';
             
             initScrollIndicator();
         });
