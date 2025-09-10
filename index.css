@@ -16,6 +16,23 @@ body {
     padding: 40px 20px;
 }
 
+/* モバイルのテキストはみ出し対策 */
+* {
+    box-sizing: border-box;
+}
+
+.glass-card h1,
+.glass-card h2,
+.work-title,
+.work-description,
+.tech-tag,
+.profile-value,
+.profile-label,
+.social-link {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
 /* スクロールインジケーター */
 .scroll-indicator {
     position: fixed;
