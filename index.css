@@ -1780,6 +1780,11 @@ body {
         padding: 20px;
         gap: 15px;
     }
+
+    /* スマホではカルーセルを1枚ずつにするため幅を100%に */
+    .works-track > .work-item {
+        min-width: 100%;
+    }
     
     .work-image {
         width: 100px;

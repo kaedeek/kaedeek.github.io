@@ -339,8 +339,11 @@
             const nextBtn = document.querySelector('.works-next');
             if (!track || items.length === 0 || !prevBtn || !nextBtn) return;
 
-            let index = 0; 
-            const groupSize = 2;
+            let index = 0;
+            function getGroupSize() {
+                return window.innerWidth < 769 ? 1 : 2;
+            }
+            let groupSize = getGroupSize();
 
             function update() {
                 const width = document.querySelector('.works-viewport').clientWidth;
@@ -362,7 +365,14 @@
                 update();
             });
 
-            window.addEventListener('resize', update);
+            window.addEventListener('resize', () => {
+                const newGroupSize = getGroupSize();
+                if (newGroupSize !== groupSize) {
+                    groupSize = newGroupSize;
+                    index = Math.min(index, maxIndex());
+                }
+                update();
+            });
             update();
         });
     </script>
