@@ -43,19 +43,27 @@
         <div class="scroll-dot" data-section="links"></div>
     </div>
 
+    <div class="control-bar" aria-label="display controls">
+        <button id="theme-toggle" class="toggle-btn" type="button" aria-label="テーマ切替" data-i18n-aria="themeToggleAria">🌙</button>
+        <select id="lang-select" class="lang-select" aria-label="言語" data-i18n-aria="langSelectAria">
+            <option value="ja">日本語</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+
     <div class="card-container">
         <div class="glass-card profile-card" id="profile">
             <div class="profile-avatar">
                 <img src="icon.jpg" alt="楓のプロフィール画像" class="avatar-image">
             </div>
-            <h1>About</h1>
+            <h1 data-i18n="about">About</h1>
             <div class="profile-info">
                 <div class="profile-item">
                     <div class="profile-label">
                         <svg class="profile-icon" viewBox="0 0 24 24">
                             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                         </svg>
-                        名前:
+                        <span data-i18n="nameLabel">名前:</span>
                     </div>
                     <span class="profile-value">楓</span>
                 </div>
@@ -64,7 +72,7 @@
                         <svg class="profile-icon" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
-                        年齢:
+                        <span data-i18n="ageLabel">年齢:</span>
                     </div>
                     <span class="profile-value">20歳</span>
                 </div>
@@ -73,17 +81,17 @@
                         <svg class="profile-icon" viewBox="0 0 24 24">
                             <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
                         </svg>
-                        誕生日:
+                        <span data-i18n="birthdayLabel">誕生日:</span>
                     </div>
                     <span class="profile-value">2005年 / 6月30日</span>
                 </div>
             </div>
-            <p>Pythonが好きです</p>
+            <p data-i18n="aboutBody">Pythonが好きです</p>
         </div>
 
         <div class="glass-card skills-card" id="skills">
             <div class="accordion-header" onclick="toggleSkills()">
-                <h2>Skill</h2>
+                <h2 data-i18n="skill">Skill</h2>
                 <svg class="accordion-icon" id="skills-icon" viewBox="0 0 24 24">
                     <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
                 </svg>
@@ -138,7 +146,7 @@
 
         <div class="glass-card works-card" id="works">
             <div class="accordion-header" onclick="toggleWorks()">
-                <h2>Works</h2>
+                <h2 data-i18n="works">Works</h2>
                 <svg class="accordion-icon" id="works-icon" viewBox="0 0 24 24">
                     <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
                 </svg>
@@ -261,7 +269,7 @@
 
         <div class="glass-card Contributions-card" id="Contributions">
             <div class="accordion-header" onclick="toggleContributions()">
-                <h2>Contributions</h2>
+                <h2 data-i18n="contributions">Contributions</h2>
                 <svg class="accordion-icon" id="Contributions-icon" viewBox="0 0 24 24">
                     <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
                 </svg>
@@ -283,7 +291,7 @@
         </div>
 
         <div class="glass-card social-card" id="links">
-            <h2>Link</h2>
+            <h2 data-i18n="links">Link</h2>
             <div class="social-links">
                 <div class="social-row">
                     <a href="https://github.com/kaedeek" class="social-link github-link" target="_blank">
@@ -374,6 +382,8 @@
 
             initScrollIndicator();
             loadOSS();
+            initTheme();
+            initI18n();
         });
 
         function initScrollIndicator() {
@@ -515,12 +525,95 @@
                 update();
             });
 
-            // OSSデータが読み込まれた後にカルーセルを初期化
             const observer = new MutationObserver(() => {
                 updateItems();
                 update();
             });
             observer.observe(track, { childList: true, subtree: true });
+        }
+
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            if (theme === 'light') {
+                root.setAttribute('data-theme', 'light');
+            } else {
+                root.removeAttribute('data-theme');
+            }
+            const btn = document.getElementById('theme-toggle');
+            if (btn) btn.textContent = theme === 'light' ? '🌞' : '🌙';
+        }
+
+        function initTheme() {
+            const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            const saved = localStorage.getItem('theme');
+            const theme = saved || (prefersLight ? 'light' : 'dark');
+            applyTheme(theme);
+            const btn = document.getElementById('theme-toggle');
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                    const next = current === 'light' ? 'dark' : 'light';
+                    applyTheme(next);
+                    localStorage.setItem('theme', next);
+                });
+            }
+        }
+
+        const I18N_DICT = {
+            ja: {
+                themeToggleAria: 'テーマ切替',
+                langSelectAria: '言語',
+                about: 'About',
+                nameLabel: '名前:',
+                ageLabel: '年齢:',
+                birthdayLabel: '誕生日:',
+                aboutBody: 'Pythonが好きです',
+                skill: 'Skill',
+                works: 'Works',
+                contributions: 'Contributions',
+                links: 'Link'
+            },
+            en: {
+                themeToggleAria: 'Toggle theme',
+                langSelectAria: 'Language',
+                about: 'About',
+                nameLabel: 'Name:',
+                ageLabel: 'Age:',
+                birthdayLabel: 'Birthday:',
+                aboutBody: 'I like Python',
+                skill: 'Skill',
+                works: 'Works',
+                contributions: 'Contributions',
+                links: 'Links'
+            }
+        };
+
+        function applyI18n(lang) {
+            const dict = I18N_DICT[lang] || I18N_DICT.ja;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) el.textContent = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+                const key = el.getAttribute('data-i18n-aria');
+                if (dict[key]) el.setAttribute('aria-label', dict[key]);
+            });
+        }
+
+        function initI18n() {
+            const saved = localStorage.getItem('lang');
+            const browser = (navigator.language || 'ja').startsWith('en') ? 'en' : 'ja';
+            const lang = saved || browser;
+            const select = document.getElementById('lang-select');
+            if (select) {
+                select.value = lang;
+                select.addEventListener('change', () => {
+                    const next = select.value;
+                    applyI18n(next);
+                    localStorage.setItem('lang', next);
+                });
+            }
+            applyI18n(lang);
         }
 
         async function loadOSS() {

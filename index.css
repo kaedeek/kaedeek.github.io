@@ -1,10 +1,38 @@
+:root {
+    --bg-gradient: radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #000000 100%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    --text-strong: #ffffff;
+    --text-normal: rgba(255, 255, 255, 0.85);
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --surface-glass: rgba(255, 255, 255, 0.08);
+    --surface-glass-hover: rgba(255, 255, 255, 0.12);
+    --surface-border: rgba(255, 255, 255, 0.15);
+    --surface-border-strong: rgba(255, 255, 255, 0.25);
+    --control-bg: rgba(255, 255, 255, 0.12);
+    --control-border: rgba(255, 255, 255, 0.25);
+    --control-icon: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] {
+    --bg-gradient: radial-gradient(ellipse at top, #f4f7fb 0%, #e9eef6 25%, #dde5f0 50%, #d8e0ea 100%),
+        linear-gradient(135deg, #ffffff 0%, #f7f9fc 50%, #ecf1f7 100%);
+    --text-strong: #0f172a;
+    --text-normal: rgba(15, 23, 42, 0.9);
+    --text-muted: rgba(15, 23, 42, 0.7);
+    --surface-glass: rgba(15, 23, 42, 0.06);
+    --surface-glass-hover: rgba(15, 23, 42, 0.08);
+    --surface-border: rgba(15, 23, 42, 0.12);
+    --surface-border-strong: rgba(15, 23, 42, 0.18);
+    --control-bg: rgba(15, 23, 42, 0.06);
+    --control-border: rgba(15, 23, 42, 0.18);
+    --control-icon: rgba(15, 23, 42, 0.9);
+}
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: 
-        radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #000000 100%),
-        linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    background: var(--bg-gradient);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
@@ -45,6 +73,31 @@ body {
     z-index: 10;
     opacity: 0.7;
     transition: opacity 0.3s ease;
+}
+
+/* コントロールバー（テーマ/言語） */
+.control-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 11;
+    display: flex;
+    gap: 10px;
+}
+
+.toggle-btn, .lang-select {
+    background: var(--control-bg);
+    border: 1px solid var(--control-border);
+    color: var(--text-strong);
+    border-radius: 12px;
+    padding: 8px 12px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.toggle-btn:hover, .lang-select:hover {
+    background: var(--surface-glass-hover);
 }
 
 /* 大画面でのスクロールインジケーター調整 */
