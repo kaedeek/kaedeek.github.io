@@ -518,7 +518,7 @@ body {
 }
 
 .glass-card h1 {
-    color: #ffffff;
+    color: var(--text-strong);
     margin: 0 0 25px 0;
     font-size: 36px;
     font-weight: 700;
@@ -529,7 +529,7 @@ body {
 }
 
 .glass-card h2 {
-    color: #ffffff;
+    color: var(--text-strong);
     margin: 0 0 25px 0;
     font-size: 28px;
     font-weight: 600;
@@ -540,7 +540,7 @@ body {
 }
 
 .glass-card p {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-normal);
     margin: 0;
     line-height: 1.7;
     font-size: 17px;
@@ -580,7 +580,7 @@ body {
 }
 
 .profile-label {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--text-muted);
     font-weight: 500;
     font-size: 17px;
     display: flex;
@@ -597,7 +597,7 @@ body {
 }
 
 .profile-value {
-    color: #ffffff;
+    color: var(--text-strong);
     font-weight: 600;
     font-size: 19px;
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
@@ -715,7 +715,7 @@ body {
 
 .skill-name {
     display: block;
-    color: #ffffff;
+    color: var(--text-strong);
     margin-bottom: 10px;
     font-weight: 500;
     font-size: 16px;
@@ -955,7 +955,7 @@ body {
 }
 
 .work-title {
-    color: #ffffff;
+    color: var(--text-strong);
     margin: 0;
     font-size: 22px;
     font-weight: 600;
@@ -963,7 +963,7 @@ body {
 }
 
 .work-description {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-normal);
     margin: 0;
     line-height: 1.6;
     font-size: 16px;
